@@ -5,6 +5,14 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- CUSTOM KEYMAPS START
+
+-- save
+vim.keymap.set('n', '<leader>wf', '<cmd>w<cr>')
+
+--Error expand
+vim.keymap.set('n', '<leader>e', function()
+  vim.diagnostic.open_float(0, { scope = 'line' })
+end)
 -- set esc
 vim.keymap.set('n', 'df', '<Esc>')
 vim.keymap.set('i', 'df', '<Esc>')
@@ -778,7 +786,22 @@ require('lazy').setup({
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     opts = {
-      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' },
+      ensure_installed = {
+        'rust',
+        'typescript',
+        'go',
+        'bash',
+        'c',
+        'diff',
+        'html',
+        'lua',
+        'luadoc',
+        'markdown',
+        'markdown_inline',
+        'query',
+        'vim',
+        'vimdoc',
+      },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
